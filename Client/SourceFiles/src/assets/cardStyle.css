@@ -1,0 +1,81 @@
+.card-see-more{
+  background-color: rebeccapurple;
+}
+
+.center-text2{
+  margin-left: 15vw;
+  font-size: 20px;
+}
+.center-text3{
+  margin-left: 6vw;
+
+}
+.center-text4{
+  margin-left: 9vw;
+
+}
+.center-text5{
+  margin-left: 6vw;
+
+}
+
+.right-date{
+  margin-right: 0.5vw;
+}
+.order-inf{
+  display: inline-block
+}
+.body-text{
+  font-size: 20px;
+}
+/*
+.size-card2{
+  max-height: 130vh;
+  min-height: 100vh;
+}*/
+.size-card{
+ /* max-height: 130vh;*/
+
+}
+.space{
+  margin-left: 11vw;
+
+}
+
+.font-p{
+  font-size: 17px;
+}
+
+.border-img{
+  border-radius:40px;
+  width: 18vw;
+}
+
+.position{
+  background-color: rebeccapurple;
+  border-color: rebeccapurple;
+}
+
+.color{
+  background-color: rebeccapurple;
+  border-color: rebeccapurple;
+}
+
+.window{
+
+  margin-top: 20vh;
+  margin-left: 35vw;
+
+}
+.img-soli{
+  border-radius:30px;
+  width: 15vw;
+}
+
+.div-img{
+  margin-bottom: 10vh;
+}
+
+.div-inputs{
+  margin-top: 8vh;
+}
