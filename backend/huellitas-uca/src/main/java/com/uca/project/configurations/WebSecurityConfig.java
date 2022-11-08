@@ -58,8 +58,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-
-
                 .authorizeRequests().antMatchers("/auth/login", "/auth/registry", "/findAllPublications", "/filter/{species}","/publicacion/{id}", "/swagger-ui", "/swagger-ui/**", "/v3/**").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().

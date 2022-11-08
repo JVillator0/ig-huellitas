@@ -12,6 +12,6 @@ public interface PetDTORepository extends JpaRepository<PetDTO,Integer> {
     List<PetDTO> getPetDTO();
 
 
-    @Query(value = "select e.pet_id, e.pet_name, e.owner_id, e.color, e.veterinary_care, e.breed, e.vaccination, e.pet_image, e.species, e.age, e.size, e.petdescription , e.sex from Pet e where e.pet_id = :id ",nativeQuery = true)
+    @Query(value = "select e.pet_id, e.pet_name, e.owner_id, e.color, e.veterinary_care, e.breed, e.vaccination, e.pet_images, e.species, e.age, e.size, e.petdescription , e.sex from Pet e where e.pet_id = :id ",nativeQuery = true)
         PetDTO getIdPet(@Param("id") Integer id);
 }

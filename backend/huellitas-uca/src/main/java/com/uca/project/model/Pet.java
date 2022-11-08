@@ -1,5 +1,7 @@
 package com.uca.project.model;
 
+import com.uca.project.modelDTO.PetImagesDTO;
+import io.swagger.v3.core.util.Json;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,8 +44,8 @@ public class Pet implements Serializable {
     public boolean getVaccinePet() {
         return vaccinePet;
     }
-    @Column(name="PET_IMAGE")
-    String petImage;
+    @Column(name="PET_IMAGES")
+    PetImagesDTO petImages;
 
     @Column(name="SPECIES")
     String species;

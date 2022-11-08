@@ -72,7 +72,7 @@ public class PublicationController {
             publicationDTO.setPetName(pet.getPetName());
             publicationDTO.setPetBreed(pet.getPetBreed());
             publicationDTO.setPetColor(pet.getPetColor());
-            publicationDTO.setPetImage(pet.getPetImage());
+            publicationDTO.setPetImages(pet.getPetImages());
             //publicationDTO.setDescription(pet.getPetDescript());
             publicationDTO.setIdOwner(pet.getOwner());
             publicationDTO.setSpecies(pet.getSpecies());
@@ -177,7 +177,7 @@ public class PublicationController {
             newPet.setPetBreed(publication.getPetBreed());
             newPet.setVeterynaryCare(publication.isVeterynaryCare());
             newPet.setVaccinePet(publication.isVaccinePet());
-            newPet.setPetImage(publication.getPetImage());
+            newPet.setPetImages(publication.getPetImages());
             newPet.setSpecies(publication.getSpecies());
             newPet.setPetAge(publication.getPetAge());
             newPet.setPetSex(publication.getPetSex());

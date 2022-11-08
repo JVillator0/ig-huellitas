@@ -33,8 +33,8 @@ public class PetDTO implements Serializable {
     @Column(name="vaccination")
     boolean vaccinePet;
 
-    @Column(name="pet_image")
-    String petImage;
+    @Column(name="pet_images")
+    PetImagesDTO petImages;
 
     @Column(name="species")
     String species;
