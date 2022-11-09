@@ -1,22 +1,22 @@
 package com.uca.project.modelDTO;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+        import lombok.Getter;
+        import lombok.Setter;
+        import lombok.ToString;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+        import javax.persistence.*;
+        import java.io.Serializable;
+        import java.util.Date;
+        import java.util.List;
 
 @Setter
 @Getter
 @Entity
 @ToString
-public class PublicationDTO implements Serializable {
+public class PublicationRequestDTO implements Serializable {
     @Id
     @Column(name = "publication_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idPublication;
 
     @Column(name="publication_date")
@@ -30,13 +30,13 @@ public class PublicationDTO implements Serializable {
 
     @Column(name="owner_id")
     Integer idOwner;
-    
+
     //para la publicacion
     @Column(name="pet_id")
     Integer idPet;
-    
+
     //--------------------Pet
-    
+
     @Column(name = "id_pet")
     Integer  petId;
 
@@ -59,7 +59,7 @@ public class PublicationDTO implements Serializable {
     boolean vaccinePet;
 
     @Column(name="pet_images")
-    String petImages;
+    PetImagesDTO petImages;
 
     @Column(name="species")
     String species;

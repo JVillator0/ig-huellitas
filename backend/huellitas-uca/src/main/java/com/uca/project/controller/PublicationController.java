@@ -1,13 +1,18 @@
 package com.uca.project.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.uca.project.model.*;
 import com.uca.project.modelDTO.PetDTO;
+import com.uca.project.modelDTO.PetImagesDTO;
 import com.uca.project.modelDTO.PublicationDTO;
+import com.uca.project.modelDTO.PublicationRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +30,7 @@ import com.uca.project.repository.PetRepository;
 import com.uca.project.repositoryDTO.PublicationDTORepository;
 import com.uca.project.repository.PublicationRepository;
 
+import javax.persistence.Column;
 
 
 @RestController
@@ -50,19 +56,48 @@ public class PublicationController {
 
 
     @RequestMapping(value={"/findAllPublications"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    List<PublicationDTO> AllPublication(){
-        return publicationRepositoryDTO.getPublicationsDTO();
+    List<PublicationRequestDTO> AllPublication(){
+
+        List<PublicationDTO> publication = publicationRepositoryDTO.getPublicationsDTO();
+        System.out.println(publication);
+        //publication
+        List<PublicationRequestDTO> publicationRequestDTO = new ArrayList<PublicationRequestDTO>();
+        publication.forEach((p) -> {
+            PublicationRequestDTO pub = new PublicationRequestDTO();
+            pub.setIdPublication(p.getIdPublication());
+            pub.setPublicationDate(p.getPublicationDate());
+            pub.setTittle(p.getTittle());
+            pub.setDescription(p.getDescription());
+            pub.setIdOwner(p.getIdOwner());
+            pub.setIdPet(p.getIdPet());
+            pub.setPetId(p.getPetId());
+            pub.setPetSex(p.getPetSex());
+            pub.setPetName(p.getPetName());
+            pub.setPetColor(p.getPetColor());
+            pub.setVeterynaryCare(p.isVeterynaryCare());
+            pub.setPetBreed(p.getPetBreed());
+            pub.setVaccinePet(p.isVaccinePet());
+            pub.setSpecies(p.getSpecies());
+            pub.setPetAge(p.getPetAge());
+            pub.setSize(p.getSize());
+            pub.setPetDescript(p.getPetDescript());
+            pub.setUserId(p.getUserId());
+            PetImagesDTO convertedObject = new Gson().fromJson(p.getPetImages(), PetImagesDTO.class);
+            pub.setPetImages(convertedObject);
+            publicationRequestDTO.add(pub);
+        });
+        return publicationRequestDTO;
     }
     @RequestMapping(value={"/filter/{species}"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public List<PublicationDTO> filterCategory(@PathVariable(name = "species") String species) {
-		
+        System.out.println(species);
 		return publicationRepositoryDTO.getpublicationsCategory(species);
 	}
 
 
     @RequestMapping(value={"/publicacion/{id}"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public PublicationDTO findPublicationByID(@PathVariable(name = "id") Integer id) {
-
+	public PublicationRequestDTO findPublicationByID(@PathVariable(name = "id") Integer id) {
+        System.out.println(id);
         PublicationDTO publicationDTO = publicationRepositoryDTO.getpublication(id);
 
        PetDTO pet = petDTORepository.getIdPet(publicationDTO.getIdPet());
@@ -81,8 +116,29 @@ public class PublicationController {
             publicationDTO.setSize(pet.getSize());
 
 
+        PublicationRequestDTO pub = new PublicationRequestDTO();
+        pub.setIdPublication(publicationDTO.getIdPublication());
+        pub.setPublicationDate(publicationDTO.getPublicationDate());
+        pub.setTittle(publicationDTO.getTittle());
+        pub.setDescription(publicationDTO.getDescription());
+        pub.setIdOwner(publicationDTO.getIdOwner());
+        pub.setIdPet(publicationDTO.getIdPet());
+        pub.setPetId(publicationDTO.getPetId());
+        pub.setPetSex(publicationDTO.getPetSex());
+        pub.setPetName(publicationDTO.getPetName());
+        pub.setPetColor(publicationDTO.getPetColor());
+        pub.setVeterynaryCare(publicationDTO.isVeterynaryCare());
+        pub.setPetBreed(publicationDTO.getPetBreed());
+        pub.setVaccinePet(publicationDTO.isVaccinePet());
+        pub.setSpecies(publicationDTO.getSpecies());
+        pub.setPetAge(publicationDTO.getPetAge());
+        pub.setSize(publicationDTO.getSize());
+        pub.setPetDescript(publicationDTO.getPetDescript());
+        pub.setUserId(publicationDTO.getUserId());
+        PetImagesDTO convertedObject = new Gson().fromJson(publicationDTO.getPetImages(), PetImagesDTO.class);
+        pub.setPetImages(convertedObject);
 
-		return publicationDTO;
+		return pub;
 	}
 
 
@@ -153,9 +209,9 @@ public class PublicationController {
         return "exit";
     }*/
     @RequestMapping(value = "/createPublication", method = RequestMethod.POST)
-    Map<String, String> createPublication(@RequestBody PublicationDTO publication) {
+    Map<String, String> createPublication(@RequestBody PublicationRequestDTO publication) {
         HashMap<String, String> map = new HashMap<>();
-        
+        System.out.println(publication.toString());
         try {
         	
         	System. out. println(publication.getPetName());
@@ -177,12 +233,19 @@ public class PublicationController {
             newPet.setPetBreed(publication.getPetBreed());
             newPet.setVeterynaryCare(publication.isVeterynaryCare());
             newPet.setVaccinePet(publication.isVaccinePet());
-            newPet.setPetImages(publication.getPetImages());
+
+            Gson gson = new Gson();
+            String json = gson.toJson(publication.getPetImages());
+            System.out.println(json);
+
+            newPet.setPetImages(json);
+
             newPet.setSpecies(publication.getSpecies());
             newPet.setPetAge(publication.getPetAge());
             newPet.setPetSex(publication.getPetSex());
             newPet.setSize(publication.getSize());
             newPet.setPetDescript(publication.getPetDescript());
+            System.out.println(newPet.toString());
             petRepository.save(newPet);
             
 

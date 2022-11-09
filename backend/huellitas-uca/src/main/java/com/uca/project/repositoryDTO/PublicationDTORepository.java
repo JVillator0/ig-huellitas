@@ -31,7 +31,7 @@ public interface PublicationDTORepository extends JpaRepository<PublicationDTO,I
     PublicationDTO getpublicationID(@Param("id")  Integer id,@Param("idUrl") Integer idUrl);
 
 	@Query(value= "SELECT p.publication_id, p.publication_date, p.pet_id, p.title ,u.user_id , e.pet_id as id_pet, p.description, e.petdescription, e.pet_name, p.owner_id , e.owner_id, "
-			+ " e.color, e.veterinary_care, e.breed, e.vaccination, e.pet_imagess, e.species,  e.age, e.size, e.sex as pet_sex, e.pet_images "
+			+ " e.color, e.veterinary_care, e.breed, e.vaccination, e.pet_images, e.species,  e.age, e.size, e.sex as pet_sex, e.pet_images "
 			+ "FROM Publication p, Pet e, public.user u, owner o "
 			+ "WHERE p.publication_id = :id and u.user_id = o.user_id and o.owner_id = p.owner_id;", nativeQuery=true)
 	PublicationDTO getpublication(@Param("id")  Integer id);

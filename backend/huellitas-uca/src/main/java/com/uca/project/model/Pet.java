@@ -4,6 +4,9 @@ import com.uca.project.modelDTO.PetImagesDTO;
 import io.swagger.v3.core.util.Json;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +16,11 @@ import java.util.List;
 @Setter
 @Getter
 @Table(name = "pet")
+//@TypeDef(
+//        name = "jsonb",
+//        typeClass = PetImagesDTO.class
+//)
+@ToString
 public class Pet implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -44,8 +52,11 @@ public class Pet implements Serializable {
     public boolean getVaccinePet() {
         return vaccinePet;
     }
+
+//    @Type(type = "jsonb")
+//    @Column(name="PET_IMAGES", columnDefinition = "jsonb")
     @Column(name="PET_IMAGES")
-    PetImagesDTO petImages;
+    String petImages;
 
     @Column(name="SPECIES")
     String species;
