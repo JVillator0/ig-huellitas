@@ -109,7 +109,7 @@ class BlogPosts extends React.Component {
               <Card  small className="card-post card-post--1">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(${post.petImage})` }}
+                  style={{ backgroundImage: `url(${post.petImages})` }}
                 >
                   <Badge
                     pill
