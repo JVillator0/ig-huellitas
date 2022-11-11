@@ -159,7 +159,7 @@ const Editor = (props) =>{
             </Slider>
 
           </div>
-
+            <div></div>
             <div className="text-center center-block   ">
             <FileBase64
                               multiple={ true }
