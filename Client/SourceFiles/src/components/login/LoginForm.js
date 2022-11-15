@@ -71,7 +71,7 @@ const LoginForm = (props) => {
                         <FormInput className="form-control form-control-lg"
                                    id="feFirstName"
                                    name="username"
-                                   placeholder="Usuario"
+                                   placeholder="Correo"
                                    onChange={onChange}
                         />
                       </Row>

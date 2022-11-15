@@ -15,6 +15,8 @@ import BlogPosts from "./views/BlogPosts";
 import Registry from "./views/Registry"
 import Login from "./views/Login"
 import viewMore from "./views/ViewMore";
+import EditProfile from "./views/EditProfile";
+
 
 
 
@@ -87,5 +89,9 @@ export default [
     layout: DefaultLayout,
     component: Home
   },
-
+  {
+    path: "/editProfile",
+    layout: DefaultLayout,
+    component: EditProfile
+  },
 ];
