@@ -278,13 +278,13 @@ class ViewMore extends React.Component{
                 </CardHeader>
                 <CardBody className={"ml-5"}>
                   <Row>
-                    <Col className={"col-sm w-50 "}>
-                      <Slider {...settings} className="w-50 mx-auto "  >
+                    <Col md="7">
+                      <Slider {...settings} className="w-50 mx-auto my-4"  >
                         {this.state.petObject.petImages.petImages.map((images, idx) => (
                         <div className="text-center center-block border-bottom py-3 " >
-                          <img   width="300"
-                                 height="300"
-                                 className="  img-responsive  mb-3 rounded-circle center  p-3 "
+                          <img   width="250"
+                                 height="250"
+                                 className=" img-responsive  mb-3 rounded-circle center "
                                  src={images.base64}  />
                         </div>
                         ))  }
@@ -295,19 +295,19 @@ class ViewMore extends React.Component{
                         </div>
 
                     </Col>
-                    <Col>
+                    <Col md="5" >
 
                         <h3 className="font-weight-bold text-center mb-4 mr-5">{this.state.petObject.name}</h3>
 
                       <Row className="">
-                        <Col>
+                        <Col md="6">
                         <p className={"font-p"}> <label htmlFor="feFirstName">Tipo de animal:</label> {this.state.petObject.species}</p>
                         <p className={"font-p"}> <label htmlFor="feFirstName">Color: </label> {this.state.petObject.petColor}</p>
                         <p className={"font-p"}>  <label htmlFor="feFirstName">Sexo: </label> {this.state.petObject.petSex}</p>
                         <p className={"font-p"}> <label>Control Veterinario:</label> {this.state.petObject.veterynaryCare ? "Si": "No"}</p>
 
                         </Col>
-                        <Col>
+                        <Col md="6">
                         <p className={"font-p"}> <label htmlFor="feFirstName">Raza:</label> {this.state.petObject.petBreed}</p>
                         <p className={"font-p"}> <label htmlFor="feFirstName">Edad:</label> {this.state.petObject.petAge}</p>
                         <p className={"font-p"}> <label htmlFor="feFirstName">Tamaño:</label> {this.state.petObject.size}</p>
