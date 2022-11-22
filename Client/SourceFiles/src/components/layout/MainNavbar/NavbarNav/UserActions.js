@@ -25,16 +25,14 @@ export default class UserActions extends React.Component {
     };
 
     this.toggleUserActions = this.toggleUserActions.bind(this);
-
-
   }
   componentDidMount() {
     axios
-      .get(`${Config.baseUrl}/getProfile?id=${AuthService.getToken().jti}`, )
-      .then((response) => {
+      .get(`${Config.baseUrl}/getProfile?id=${AuthService.getToken().jti}`)
+      .then(response => {
         //this.props.user =  response.data
-        User.changeName = (response.data.nameUser)
-        User.changePhone = (response.data.phone)
+        User.changeName = response.data.nameUser;
+        User.changePhone = response.data.phone;
         this.setState({
           user: response.data.nameUser,
           picture: response.data.picture
@@ -66,13 +64,22 @@ export default class UserActions extends React.Component {
           <DropdownItem tag={Link} to="perfil">
             <i className="material-icons">&#xE7FD;</i> Perfil
           </DropdownItem>
-          <DropdownItem tag={Link} to="requests" className="text-danger">
-          <i className="material-icons">&#xF189;</i> Solicitudes
+          <DropdownItem tag={Link} to="requests">
+            <i className="material-icons">&#xF189;</i> Solicitudes
           </DropdownItem>
-          <Link to={{
-            pathname:  `/`
-          }}>
-            <DropdownItem tag={Link} to="login" className="text-danger" onClick={() => localStorage.removeItem("token")}>
+          <Link
+            to={{
+              pathname: `/`
+            }}
+          >
+            <DropdownItem
+              tag={Link}
+              to="login"
+              className={
+                localStorage.getItem("theme") !== "dark" ? "text-danger" : ""
+              }
+              onClick={() => localStorage.removeItem("token")}
+            >
               <i className="material-icons text-danger">&#xE879;</i> Logout
             </DropdownItem>
           </Link>

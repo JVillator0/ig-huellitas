@@ -18,20 +18,16 @@ const UserDetails = ({ userDetails }) => (
           src={userDetails.picture}
           alt={userDetails.nameUser}
           width="110"
-          height= "110"
+          height="110"
         />
       </div>
       <h4 className="mb-0">{userDetails.nameUser}</h4>
     </CardHeader>
     <ListGroup flush>
-      <ListGroupItem className="px-4">
-        <div className="progress-wrapper">
-        </div>
-      </ListGroupItem>
       <ListGroupItem className="p-4">
-        <strong className="text-muted d-block mb-2">
-          Sobre mi
-        </strong>
+        <label className="text-muted d-block mb-2 font-weight-bold">
+          Sobre mi:
+        </label>
         <span>{userDetails.description}</span>
       </ListGroupItem>
     </ListGroup>
