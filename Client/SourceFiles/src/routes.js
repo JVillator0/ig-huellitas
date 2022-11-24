@@ -12,74 +12,86 @@ import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
-import Registry from "./views/Registry";
-import Login from "./views/Login";
-import ViewMore from "./views/ViewMore";
+import Registry from "./views/Registry"
+import Login from "./views/Login"
+import viewMore from "./views/ViewMore";
+import EditProfile from "./views/EditProfile";
+
+
+
+
+
 
 import Requests from "./views/Requests";
 import MainFooter from "./components/layout/MainFooter";
 import RouterService from "./services/RouterService";
-
 export default [
   {
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/home" st />
+    component: () => <Redirect to="/home" />
   },
 
   {
     path: "/perfil",
     exact: true,
     layout: DefaultLayout,
-    component: () => <UserProfileLite />
+    component: UserProfileLite
   },
   {
     path: "/registry",
-    layout: () => <Registry />
+    layout: Registry,
   },
   {
     path: "/Login",
-    layout: () => <Login />
+    layout: Login,
   },
   {
     path: "/Requests",
     layout: DefaultLayout,
-    component: () => <Requests />
+    component: Requests
   },
   {
     path: "/nueva-publicacion",
     layout: DefaultLayout,
-    component: () => <AddNewPost />
+    component: AddNewPost
   },
   {
     path: "/errors",
     layout: DefaultLayout,
-    component: () => <Errors />
+    component: Errors
   },
   {
     path: "/components-overview",
     layout: DefaultLayout,
-    component: () => <ComponentsOverview />
+    component: ComponentsOverview
   },
   {
     path: "/tables",
     layout: DefaultLayout,
-    component: () => <Tables />
+    component: Tables
   },
   {
-    path: "/view/:id",
-    layout: DefaultLayout,
-    component: () => <ViewMore />
-  },
+      path:"/view/:id",
+      layout: DefaultLayout,
+      component: viewMore,
+
+    }
+  ,
   {
     path: "/publicaciones",
     layout: DefaultLayout,
-    component: () => <BlogPosts />
+    component: BlogPosts
   },
   {
     path: "/home",
     layout: DefaultLayout,
-    component: () => <Home />
-  }
+    component: Home
+  },
+  {
+    path: "/editProfile",
+    layout: DefaultLayout,
+    component: EditProfile
+  },
 ];
