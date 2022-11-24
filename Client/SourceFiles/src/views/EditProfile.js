@@ -8,7 +8,7 @@ import axios from "axios";
 import Config from "../utils/Config";
 import AuthService from "../services/AuthService";
 
-const UserProfileLite = () =>{
+const EditProfile = () =>{
   const [user, setUser] = useState({
     nameUser: "Loading user...",
     picture: "https://i.stack.imgur.com/l60Hf.png",
@@ -49,16 +49,13 @@ const UserProfileLite = () =>{
         <PageTitle title="Perfil"  md="12" className="ml-sm-auto mr-sm-auto" />
       </Row>
       <Row>
-        <Col >
-          <UserDetails userDetails={user} />
-        </Col>
 
-        {/*<Col lg="8">
+        <Col>
           <UserAccountDetails userDetails={user}/>
-  </Col>*/}
+        </Col>
       </Row>
     </Container>
   )
 };
 
-export default UserProfileLite;
+export default EditProfile;

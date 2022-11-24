@@ -39,7 +39,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2020 HuellitasUCA",
+  copyright: "Copyright © 2022 HuellitasUCA",
   menuItems: []
 };
 

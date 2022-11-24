@@ -15,6 +15,7 @@ import BlogPosts from "./views/BlogPosts";
 import Registry from "./views/Registry";
 import Login from "./views/Login";
 import ViewMore from "./views/ViewMore";
+import EditProfile from "./views/EditProfile";
 
 import Requests from "./views/Requests";
 import MainFooter from "./components/layout/MainFooter";
@@ -27,7 +28,6 @@ export default [
     layout: DefaultLayout,
     component: () => <Redirect to="/home" st />
   },
-
   {
     path: "/perfil",
     exact: true,
@@ -81,5 +81,10 @@ export default [
     path: "/home",
     layout: DefaultLayout,
     component: () => <Home />
+  },
+  {
+    path: "/editProfile",
+    layout: DefaultLayout,
+    component: () => <EditProfile />
   }
 ];
