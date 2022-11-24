@@ -82,7 +82,7 @@ class BlogPosts extends React.Component {
         <Form className="add-new-post" onSubmit={FilterPublication}>
         <Row className="pb-4">
           <Col  lg="3" md="5" sm="5" >
-            <label htmlFor="filter">Filtrar por categoria de mascota: </label>
+            <label htmlFor="filter ">Filtrar por categoria de mascota: </label>
           </Col>
           <Col>
             <FormSelect id="filter" name="filter"  onChange={this.changeNewStage} >
@@ -105,17 +105,22 @@ class BlogPosts extends React.Component {
         {/* First Row of Posts */}
         <Row>
           {PostsListOne.map((post, idx) => (
+
             <Col lg="3" md="6" sm="12" className="mb-4" key={post.idPublication}  >
+
               <Card  small className="card-post card-post--1">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(${post.petImage})` }}
+
+                  style={{ backgroundImage: `url(${post.petImages.petImages[0].base64})` }}
                 >
+
                   <Badge
                     pill
                     className={`card-post__category bg-${post.categoryTheme}`}
                   >
                     {post.species}
+                    {console.log(post.petImages.petImages[0].base64)}
                   </Badge>
                 </div>
                 <CardBody  class="card-body d-flex row justify-content-center align-items-center ml-4 ">

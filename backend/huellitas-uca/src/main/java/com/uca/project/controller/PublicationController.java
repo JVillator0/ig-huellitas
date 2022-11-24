@@ -59,8 +59,6 @@ public class PublicationController {
     List<PublicationRequestDTO> AllPublication(){
 
         List<PublicationDTO> publication = publicationRepositoryDTO.getPublicationsDTO();
-        System.out.println(publication);
-        //publication
         List<PublicationRequestDTO> publicationRequestDTO = new ArrayList<PublicationRequestDTO>();
         publication.forEach((p) -> {
             PublicationRequestDTO pub = new PublicationRequestDTO();
@@ -89,9 +87,35 @@ public class PublicationController {
         return publicationRequestDTO;
     }
     @RequestMapping(value={"/filter/{species}"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-	public List<PublicationDTO> filterCategory(@PathVariable(name = "species") String species) {
+	public List<PublicationRequestDTO> filterCategory(@PathVariable(name = "species") String species) {
         System.out.println(species);
-		return publicationRepositoryDTO.getpublicationsCategory(species);
+        List<PublicationDTO> publication = publicationRepositoryDTO.getpublicationsCategory(species);
+        List<PublicationRequestDTO> publicationRequestDTO = new ArrayList<PublicationRequestDTO>();
+        publication.forEach((p) -> {
+            PublicationRequestDTO pub = new PublicationRequestDTO();
+            pub.setIdPublication(p.getIdPublication());
+            pub.setPublicationDate(p.getPublicationDate());
+            pub.setTittle(p.getTittle());
+            pub.setDescription(p.getDescription());
+            pub.setIdOwner(p.getIdOwner());
+            pub.setIdPet(p.getIdPet());
+            pub.setPetId(p.getPetId());
+            pub.setPetSex(p.getPetSex());
+            pub.setPetName(p.getPetName());
+            pub.setPetColor(p.getPetColor());
+            pub.setVeterynaryCare(p.isVeterynaryCare());
+            pub.setPetBreed(p.getPetBreed());
+            pub.setVaccinePet(p.isVaccinePet());
+            pub.setSpecies(p.getSpecies());
+            pub.setPetAge(p.getPetAge());
+            pub.setSize(p.getSize());
+            pub.setPetDescript(p.getPetDescript());
+            pub.setUserId(p.getUserId());
+            PetImagesDTO convertedObject = new Gson().fromJson(p.getPetImages(), PetImagesDTO.class);
+            pub.setPetImages(convertedObject);
+            publicationRequestDTO.add(pub);
+        });
+        return publicationRequestDTO;
 	}
 
 
@@ -265,9 +289,7 @@ public class PublicationController {
         	map.put("message", "Something Went Wrong with the Pet "+ e);
         }
         return map;
-        
-        
-       
+
     }
 
 

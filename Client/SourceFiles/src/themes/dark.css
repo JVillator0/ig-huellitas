@@ -1,0 +1,91 @@
+/* NAVBAR */
+
+.main-navbar {
+  background-color: #171923 !important;
+  border-bottom: 1px solid #2a2a2a !important;
+  color: #fff !important;
+}
+
+.nav-wrapper {
+  background-color: #171923 !important;
+  color: #fff !important;
+}
+
+.main-sidebar .nav .nav-link {
+  color: #fff !important;
+}
+
+.main-sidebar .main-navbar nav > * {
+  background-color: #171923 !important;
+  color: #fff !important;
+}
+
+.dropdown > * {
+  background-color: #171923 !important;
+  color: #fff !important;
+}
+
+.dropdown-item, .dropdown-item > *{
+  color: #fff !important;
+}
+.dropdown-item:hover {
+  background-color: #3b405b !important;
+  color: #fff !important;
+}
+
+.main-sidebar .nav .nav-item {
+  background-color: #171923 !important;
+  color: #fff !important;
+}
+
+.main-sidebar .nav .nav-item .nav-link.active {
+  background-color: #3b405b !important;
+  color: #fff !important;
+}
+
+.main-sidebar .nav .nav-item .nav-link:hover {
+  background-color: #3b405b !important;
+  color: #fff !important;
+}
+
+#uncontrolled-tab-example-tab-Peticiones[aria-selected="false"], #uncontrolled-tab-example-tab-MisSolicitudes[aria-selected="false"] {
+  background-color: #171923 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+#uncontrolled-tab-example-tab-Peticiones[aria-selected="true"], #uncontrolled-tab-example-tab-MisSolicitudes[aria-selected="true"] {
+  background-color: #3b405b !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+/* MAIN  */
+
+.main-content-container {
+  background-color: #171923 !important;
+  color: #fff !important;
+}
+
+.text-black, p, h1, h2, h3, h4, h5, h6 {
+  color: #fff !important;
+}
+
+.card, .card > * {
+  background-color: #232944 !important;
+  color: #fff !important;
+}
+
+ul, ul > * {
+  background-color: #232944 !important;
+  color: #fff !important;
+}
+
+html, footer, body, main, .bg-white {
+  background-color: #171923 !important;
+}
+
+input, textarea, select {
+  background-color: #454f7b !important;
+  color: #fff !important;
+}

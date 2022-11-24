@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -72,6 +73,8 @@ public class PublicationDTO implements Serializable {
 
     @Column(name="petdescription")
     String petDescript;
+
     @Column(name = "user_id")
+    @Null
     Integer userId;
 }

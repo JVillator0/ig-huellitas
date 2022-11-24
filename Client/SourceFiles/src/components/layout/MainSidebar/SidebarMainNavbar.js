@@ -39,9 +39,7 @@ class SidebarMainNavbar extends React.Component {
                 alt="HuellitasIcono"
               />
               {!hideLogoText && (
-                <span className="d-none d-md-inline ml-1">
-                  HuellitasUca
-                </span>
+                <span className="d-none d-md-inline ml-1">HuellitasUca</span>
               )}
             </div>
           </NavbarBrand>

@@ -49,13 +49,12 @@ const UserProfileLite = () =>{
         <PageTitle title="Perfil"  md="12" className="ml-sm-auto mr-sm-auto" />
       </Row>
       <Row>
-        <Col >
+        <Col lg="4">
           <UserDetails userDetails={user} />
         </Col>
-
-        {/*<Col lg="8">
+        <Col lg="8">
           <UserAccountDetails userDetails={user}/>
-  </Col>*/}
+        </Col>
       </Row>
     </Container>
   )

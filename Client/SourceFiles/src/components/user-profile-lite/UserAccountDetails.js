@@ -18,7 +18,6 @@ import axios from "axios";
 import Config from "../../utils/Config";
 import AuthService from "../../services/AuthService";
 let countAction = 0;
-
 const UserAccountDetails = ({ userDetails }) => {
   const [user, setUser] = useState(userDetails)
   useEffect(()=>{
@@ -122,7 +121,7 @@ const UserAccountDetails = ({ userDetails }) => {
                 <Row form>
                   {/* City */}
                   <Col md="6" className="form-group">
-                    <label htmlFor="feCity">Direccion</label>
+                    <label htmlFor="feCity">Dirreccion</label>
                     <FormInput
                       id="feCity"
                       value={user.address}
@@ -184,6 +183,7 @@ const UserAccountDetails = ({ userDetails }) => {
                   </Col>
                 </Row>
                 <Row form>
+                  {/* Description */}
                   <Col md="12" className="form-group">
                     <label htmlFor="feDescription">Sobre mi</label>
 

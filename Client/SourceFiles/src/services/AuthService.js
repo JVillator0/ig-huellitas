@@ -3,7 +3,7 @@ import jwtDecode from "jwt-decode";
 class AuthService {
   static getAuth() {
     const token = localStorage.getItem("token");
-    if (token){
+    if (token) {
       const tokenDecoder = jwtDecode(token);
       let currentDate = new Date();
       if (tokenDecoder.exp * 1000 < currentDate.getTime()) {
@@ -12,21 +12,21 @@ class AuthService {
       } else {
         return true;
       }
-    }else{
+    } else {
       return false;
     }
   }
-  static saveToken(token){
+  static saveToken(token) {
     localStorage.setItem("token", token);
   }
-  static getToken(){
+  static getToken() {
     const token = localStorage.getItem("token");
-    if (token){
+    if (token) {
       return jwtDecode(token);
     }
   }
-  static getAuthToken(){
-    return localStorage.getItem("token")
+  static getAuthToken() {
+    return localStorage.getItem("token");
   }
 }
 export default AuthService;
