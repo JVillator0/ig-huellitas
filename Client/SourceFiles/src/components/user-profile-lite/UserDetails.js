@@ -10,9 +10,7 @@ import {
   Row,
   Col
 } from "shards-react";
-
-
-import { withRouter  } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const UserDetails = ({ userDetails }) => (
   <Card small className="mb-4 pt-3">
@@ -23,79 +21,78 @@ const UserDetails = ({ userDetails }) => (
           src={userDetails.picture}
           alt={userDetails.nameUser}
           width="170"
-          height= "170"
+          height="170"
         />
       </div>
       <h4 className="mb-0">{userDetails.nameUser}</h4>
     </CardHeader>
     <ListGroup flush>
-        <ListGroupItem className="p-4">
+      <ListGroupItem className="p-4">
 
         <Row>
-            <Col>
-                <Row className="my-2">
-                <Col >
-                  <strong className="text-muted d-block mb-2">
-                      Sobre mi
-                    </strong>
-                    <span>{userDetails.description}</span>
+          <Col>
+            <Row className="my-2">
+              <Col >
+                <strong className="text-muted d-block mb-2">
+                  Sobre mi
+                </strong>
+                <span>{userDetails.description}</span>
 
-                  </Col>
-                </Row>
-                <Row className="my-2">
-
-                  <Col md="6" >
-                    <strong className="text-muted  mb-2">
-                    Nombre
-                    </strong>
-                    <span> {userDetails.nameUser}</span>
-
-                  </Col>
-                  <Col md="6">
-                    <strong className="text-muted  mb-2">
-                    Telefono:
-                    </strong>
-                    <span> {userDetails.phone}</span>
-                  </Col>
-                </Row>
-                <Row className="my-2">
-                  <Col md="6">
-                    <strong className="text-muted  mb-2">
-                    Edad:
-                    </strong>
-                    <span> {userDetails.age}</span>
-                  </Col>
-                  <Col md="6" >
-                    <strong className="text-muted  mb-2">
-                      Correo:
-                    </strong>
-                    <span> {userDetails.email}</span>
-                  </Col>
-
-                </Row>
-                <Row className="my-2" >
-                  <Col md="6" >
-                  <strong className="text-muted  mb-2">
-                      Direccion:
-                    </strong>
-                    <span> {userDetails.address}</span>
-
-                  </Col>
-                  <Col md="6" >
-                  <strong className="text-muted  mb-2">
-                      Departamento:
-                    </strong>
-                    <span> {userDetails.department}</span>
-                  </Col>
-                </Row>
               </Col>
             </Row>
-            <div className={" text-center center-block my-3"}>
-              <Button theme="accent" href="/editProfile">Editar Informacion</Button>
-            </div>
+            <Row className="my-2">
 
-            </ListGroupItem>
-      </ListGroup>
+              <Col md="6" >
+                <strong className="text-muted  mb-2">
+                  Nombre
+                </strong>
+                <span> {userDetails.nameUser}</span>
+
+              </Col>
+              <Col md="6">
+                <strong className="text-muted  mb-2">
+                  Telefono:
+                </strong>
+                <span> {userDetails.phone}</span>
+              </Col>
+            </Row>
+            <Row className="my-2">
+              <Col md="6">
+                <strong className="text-muted  mb-2">
+                  Edad:
+                </strong>
+                <span> {userDetails.age}</span>
+              </Col>
+              <Col md="6" >
+                <strong className="text-muted  mb-2">
+                  Correo:
+                </strong>
+                <span> {userDetails.email}</span>
+              </Col>
+
+            </Row>
+            <Row className="my-2" >
+              <Col md="6" >
+                <strong className="text-muted  mb-2">
+                  Direccion:
+                </strong>
+                <span> {userDetails.address}</span>
+
+              </Col>
+              <Col md="6" >
+                <strong className="text-muted  mb-2">
+                  Departamento:
+                </strong>
+                <span> {userDetails.department}</span>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <div className={" text-center center-block my-3"}>
+          <Button theme="accent" href="/editProfile">Editar Informacion</Button>
+        </div>
+      </ListGroupItem>
+    </ListGroup>
   </Card>
 );
 
